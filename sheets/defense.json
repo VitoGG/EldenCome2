@@ -1,0 +1,51 @@
+{
+  "sheet": "defense",
+  "about": "Blocking rules. An enemy attack gets an incoming zone (enemy_dirs) while it winds up; the player blocks by holding Guard with the cursor on that zone.",
+  "columns": {
+    "id": "Row id",
+    "when": "Trigger",
+    "condition": "Test",
+    "effect": "What happens in Elden Ring",
+    "kcd2_value": "Value read from KCD2 (kcd2_sources id and how), or '-'",
+    "er_mechanism": "How the mod makes it happen (hooks.id)",
+    "sound": "sounds.id played, or '-'"
+  },
+  "rows": [
+    {
+      "id": "block_right_side",
+      "when": "Enemy attack connects while the player guards",
+      "condition": "cursor zone == incoming zone",
+      "effect": "Normal Elden Ring guard (the weapon's own guard absorbs the hit)",
+      "kcd2_value": "-",
+      "er_mechanism": "game_default",
+      "sound": "clash_block"
+    },
+    {
+      "id": "block_wrong_side",
+      "when": "Enemy attack becomes active while the player guards",
+      "condition": "cursor zone != incoming zone (and the incoming zone is known)",
+      "effect": "The guard opens for this attack: the guard input is withheld from the game until the attack ends, so the hit lands",
+      "kcd2_value": "-",
+      "er_mechanism": "input_suppress",
+      "sound": "-"
+    },
+    {
+      "id": "perfect_block",
+      "when": "Enemy hit lands on the guard",
+      "condition": "zone matches AND guard was pressed no earlier than the perfect window before the hit",
+      "effect": "No stamina lost to the hit, enemy staggers, riposte window opens",
+      "kcd2_value": "perfect_block_timing: median(block_time_to_hit - block_time_to_start) over all rows (KCD2 1.5.6 has no player rows; 206 NPC rows give 0.515 s)",
+      "er_mechanism": "guard_hit_detect + player_stamina + enemy_stagger",
+      "sound": "clash_perfect"
+    },
+    {
+      "id": "riposte",
+      "when": "Attack pressed inside the riposte window",
+      "condition": "riposte window open",
+      "effect": "Elden Ring's guard counter for the equipped sword plays instead of the zone swing",
+      "kcd2_value": "perfect_block_timing: median(block_time_to_end - block_time_to_hit) over all rows (1.15 s on KCD2 1.5.6)",
+      "er_mechanism": "fire_behavior_event (W_AttackRightHeavyCounter / W_AttackBothHeavyCounter)",
+      "sound": "clash_riposte"
+    }
+  ]
+}

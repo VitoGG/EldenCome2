@@ -1,0 +1,18 @@
+{
+  "sheet": "weapon_classes",
+  "about": "Elden Ring weapon classes in version 0.1. Any other right-hand weapon plays like normal Elden Ring.",
+  "columns": {
+    "id": "Row id, referenced by swing_map",
+    "er_wep_type": "EquipParamWeapon.wepType value",
+    "er_name": "Class name in Elden Ring",
+    "kcd2_analog": "Closest KCD2 weapon",
+    "example_weapon": "A weapon of this class to test with",
+    "wep_type_verified": "Seen in the game log with the example weapon equipped"
+  },
+  "rows": [
+    {"id": "straight_sword", "er_wep_type": 3, "er_name": "Straight Sword", "kcd2_analog": "sword", "example_weapon": "Longsword", "wep_type_verified": false},
+    {"id": "greatsword", "er_wep_type": 5, "er_name": "Greatsword", "kcd2_analog": "longsword", "example_weapon": "Bastard Sword", "wep_type_verified": false},
+    {"id": "katana", "er_wep_type": 13, "er_name": "Katana", "kcd2_analog": "sabre", "example_weapon": "Uchigatana", "wep_type_verified": false},
+    {"id": "light_greatsword", "er_wep_type": 93, "er_name": "Light Greatsword (Shadow of the Erdtree)", "kcd2_analog": "longsword", "example_weapon": "Milady", "wep_type_verified": false}
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "sheet": "hud",
+  "about": "What the mod draws (ImGui overlay in Elden Ring's D3D12 frame). Icons come from the player's KCD2 copy.",
+  "columns": {
+    "id": "Row id",
+    "shown_when": "Condition",
+    "anchor": "screen_center | locked_target (projected through the game camera)",
+    "icon": "kcd2_sources id of the texture, or '-' for plain lines",
+    "size_px": "Size at 1080p (scaled with screen height)",
+    "description": "What the player sees"
+  },
+  "rows": [
+    {"id": "star", "shown_when": "locked_on && covered_weapon", "anchor": "screen_center", "icon": "-", "size_px": 150,
+     "description": "Four thin sector lines marking KCD2's zones, the cursor's zone filled faintly"},
+    {"id": "cursor", "shown_when": "locked_on && covered_weapon", "anchor": "screen_center", "icon": "icon_cursor", "size_px": 40,
+     "description": "KCD2's combat cursor icon sitting in the chosen zone"},
+    {"id": "incoming", "shown_when": "locked target is winding up an attack", "anchor": "locked_target", "icon": "icon_cursor", "size_px": 48,
+     "description": "KCD2's cursor icon on the target, tinted red, on the side the attack comes from; all four sides when unknown"},
+    {"id": "perfect_flash", "shown_when": "0.4 s after a perfect block", "anchor": "screen_center", "icon": "icon_perfect_block", "size_px": 72,
+     "description": "KCD2's perfect block icon flashes in the blocked zone"},
+    {"id": "riposte_ready", "shown_when": "riposte window open", "anchor": "screen_center", "icon": "icon_riposte", "size_px": 56,
+     "description": "KCD2's riposte icon under the star until the window closes"}
+  ]
+}

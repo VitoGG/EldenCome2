@@ -1,0 +1,195 @@
+{
+ "sheet": "swing_map",
+ "about": "Which Elden Ring swing plays for each weapon class, zone and grip. Starting values are candidates; measured_zone_* is filled from the swing lab (the mod tracks the player's own weapon bone through each swing and snaps it to a KCD2 zone). A row is done when the measured zone equals kcd2_zone (stab rows: measured 'thrust').",
+ "columns": {
+  "weapon_class": "weapon_classes.id",
+  "attack": "attacks.id",
+  "kcd2_zone": "zones.kcd2_name, or '-' for a stab",
+  "event_1h": "Behavior event, one-handed",
+  "event_2h": "Behavior event, two-handed",
+  "measured_zone_1h": "Swing lab result, one-handed",
+  "measured_zone_2h": "Swing lab result, two-handed"
+ },
+ "rows": [
+  {
+   "weapon_class": "straight_sword",
+   "attack": "slash",
+   "kcd2_zone": "upper_right",
+   "event_1h": "W_AttackRightLight1",
+   "event_2h": "W_AttackBothHeavy1Start",
+   "measured_zone_1h": "upper_right",
+   "measured_zone_2h": "upper_right"
+  },
+  {
+   "weapon_class": "straight_sword",
+   "attack": "slash",
+   "kcd2_zone": "upper_left",
+   "event_1h": "W_AttackRightLight2",
+   "event_2h": "W_AttackBothHeavy2Start",
+   "measured_zone_1h": "upper_left",
+   "measured_zone_2h": "upper_left"
+  },
+  {
+   "weapon_class": "straight_sword",
+   "attack": "slash",
+   "kcd2_zone": "head",
+   "event_1h": "W_AttackRightLight6",
+   "event_2h": "W_AttackBothLight4",
+   "measured_zone_1h": "head",
+   "measured_zone_2h": "head"
+  },
+  {
+   "weapon_class": "straight_sword",
+   "attack": "slash",
+   "kcd2_zone": "lower",
+   "event_1h": "W_AttackRightHeavy2Start",
+   "event_2h": "W_AttackBothLightStep",
+   "measured_zone_1h": "lower",
+   "measured_zone_2h": "lower"
+  },
+  {
+   "weapon_class": "straight_sword",
+   "attack": "stab",
+   "kcd2_zone": "-",
+   "event_1h": "W_AttackRightLightStep",
+   "event_2h": "W_AttackBothLight1",
+   "measured_zone_1h": "thrust",
+   "measured_zone_2h": "thrust"
+  },
+  {
+   "weapon_class": "greatsword",
+   "attack": "slash",
+   "kcd2_zone": "upper_right",
+   "event_1h": "W_AttackRightLight1",
+   "event_2h": "W_AttackBothLight1",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "greatsword",
+   "attack": "slash",
+   "kcd2_zone": "upper_left",
+   "event_1h": "W_AttackRightLight2",
+   "event_2h": "W_AttackBothLight2",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "greatsword",
+   "attack": "slash",
+   "kcd2_zone": "head",
+   "event_1h": "W_AttackRightHeavy1Start",
+   "event_2h": "W_AttackBothHeavy1Start",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "greatsword",
+   "attack": "slash",
+   "kcd2_zone": "lower",
+   "event_1h": "W_AttackRightLightStep",
+   "event_2h": "W_AttackBothLightStep",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "greatsword",
+   "attack": "stab",
+   "kcd2_zone": "-",
+   "event_1h": "W_AttackRightBackstep",
+   "event_2h": "W_AttackBothBackstep",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "katana",
+   "attack": "slash",
+   "kcd2_zone": "upper_right",
+   "event_1h": "W_AttackRightLight1",
+   "event_2h": "W_AttackBothLight1",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "katana",
+   "attack": "slash",
+   "kcd2_zone": "upper_left",
+   "event_1h": "W_AttackRightLight2",
+   "event_2h": "W_AttackBothLight2",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "katana",
+   "attack": "slash",
+   "kcd2_zone": "head",
+   "event_1h": "W_AttackRightHeavy1Start",
+   "event_2h": "W_AttackBothHeavy1Start",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "katana",
+   "attack": "slash",
+   "kcd2_zone": "lower",
+   "event_1h": "W_AttackRightLightStep",
+   "event_2h": "W_AttackBothLightStep",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "katana",
+   "attack": "stab",
+   "kcd2_zone": "-",
+   "event_1h": "W_AttackRightBackstep",
+   "event_2h": "W_AttackBothBackstep",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "light_greatsword",
+   "attack": "slash",
+   "kcd2_zone": "upper_right",
+   "event_1h": "W_AttackRightLight1",
+   "event_2h": "W_AttackBothLight1",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "light_greatsword",
+   "attack": "slash",
+   "kcd2_zone": "upper_left",
+   "event_1h": "W_AttackRightLight2",
+   "event_2h": "W_AttackBothLight2",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "light_greatsword",
+   "attack": "slash",
+   "kcd2_zone": "head",
+   "event_1h": "W_AttackRightHeavy1Start",
+   "event_2h": "W_AttackBothHeavy1Start",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "light_greatsword",
+   "attack": "slash",
+   "kcd2_zone": "lower",
+   "event_1h": "W_AttackRightLightStep",
+   "event_2h": "W_AttackBothLightStep",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  },
+  {
+   "weapon_class": "light_greatsword",
+   "attack": "stab",
+   "kcd2_zone": "-",
+   "event_1h": "W_AttackRightBackstep",
+   "event_2h": "W_AttackBothBackstep",
+   "measured_zone_1h": null,
+   "measured_zone_2h": null
+  }
+ ]
+}

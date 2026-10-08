@@ -1,0 +1,27 @@
+[package]
+name = "kctarnished"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Kingdom Come: Deliverance II directional combat in Elden Ring"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+eldenring = { git = "https://github.com/vswarte/fromsoftware-rs", rev = "59fbd3b3b7daaf14aca47c9f73530493dba6bc79" }
+fromsoftware-shared = { git = "https://github.com/vswarte/fromsoftware-rs", rev = "59fbd3b3b7daaf14aca47c9f73530493dba6bc79" }
+hudhook = { git = "https://github.com/veeenu/hudhook", rev = "6a361de92396bcbb1f46cec31348fd73344ed031", default-features = false, features = ["dx12"] }
+glam = "0.30"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+roxmltree = "0.20"
+texture2ddecoder = "0.1"
+windows = { version = "0.61", features = ["Win32_Foundation", "Win32_System_LibraryLoader", "Win32_System_Memory", "Win32_System_Diagnostics_Debug", "Win32_System_SystemServices", "Win32_UI_WindowsAndMessaging", "Win32_Media_Audio"] }
+lewton = "0.10"
+
+[profile.release]
+panic = "abort"
+lto = "thin"
+codegen-units = 4
+debug = 1

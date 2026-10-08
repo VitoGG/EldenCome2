@@ -1,0 +1,16 @@
+{
+  "sheet": "sounds",
+  "about": "Sounds played from KCD2's own FMOD bank (decoded at runtime from the player's copy). A random sample from the list plays each time.",
+  "columns": {
+    "id": "Row id, referenced by defense.sound",
+    "source": "kcd2_sources id",
+    "samples": "FSB5 sample names (all must exist in kcd2_sources.sound_bank.fields)",
+    "volume": "0..1",
+    "played_on": "Event"
+  },
+  "rows": [
+    {"id": "clash_block", "source": "sound_bank", "samples": ["sword_sword_clash44", "sword_sword_clash50"], "volume": 0.7, "played_on": "Guard on the right side"},
+    {"id": "clash_perfect", "source": "sound_bank", "samples": ["sword_sword_clash55", "sword_sword_clash60", "sword_sweetener4"], "volume": 0.9, "played_on": "Perfect block"},
+    {"id": "clash_riposte", "source": "sound_bank", "samples": ["sword_hit_sword_01", "sword_hit_sword_03", "sword_sword_clinch3_01"], "volume": 0.8, "played_on": "Riposte starts"}
+  ]
+}

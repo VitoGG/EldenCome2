@@ -1,0 +1,26 @@
+{
+  "sheet": "hooks",
+  "about": "Every point where the mod touches Elden Ring. A row is done when 'verified' names the in-game log line that proved it.",
+  "columns": {
+    "id": "Row id, referenced by other sheets",
+    "what": "What it gives the mod",
+    "how": "Mechanism",
+    "source": "Where the layout or address comes from",
+    "verified": "Log evidence from the running game (null = not yet)"
+  },
+  "rows": [
+    {"id": "boot", "what": "Safe start after the game window exists", "how": "Thread from DllMain waits for the window + fresh reflection scan, then registers a CSTask", "source": "fromsoftware-rs + KB note gotchas 1-2", "verified": null},
+    {"id": "player", "what": "PlayerIns, lock-on handle, right-hand weapon type, two-handing", "how": "WorldChrMan.main_player; PlayerIns.locked_on_enemy; equipped weapon param wepType", "source": "fromsoftware-rs", "verified": null},
+    {"id": "target", "what": "Locked target ChrIns and its current animation id", "how": "Resolve handle via WorldChrMan; CSChrTimeActModule.anim_queue[read_idx]", "source": "fromsoftware-rs", "verified": null},
+    {"id": "input_read", "what": "Attack / StrongAttack / Guard / lock / camera inputs", "how": "FD4PadManager in-game pad poll_digital_input / poll_analog_input", "source": "fromsoftware-rs", "verified": null},
+    {"id": "input_suppress", "what": "Withhold inputs from the game", "how": "Blank the virtual device states for those inputs before the game polls them", "source": "fromsoftware-rs (VirtualMultiDevice set_virtual_*_state); timing to verify", "verified": null},
+    {"id": "fire_behavior_event", "what": "Start a named swing on the player", "how": "fn(hkbCharacter*, const wchar_t*) at AOB '74 ?? 48 85 d2 74 ?? 48 8d 4c 24 50' - 0xD; hkbCharacter at *(*(*(ChrIns+0x190)+0x28)+0x10)+0x30", "source": "The Grand Archives CT PlayAnimation", "verified": null},
+    {"id": "bones", "what": "World position of a named bone on any character", "how": "hkbCharacter -> skeleton bone names + current pose (layout to probe)", "source": "to probe in game", "verified": null},
+    {"id": "camera", "what": "View matrix + FOV to project the target and define the screen plane", "how": "CSCamera pers cam matrix/fov", "source": "fromsoftware-rs", "verified": null},
+    {"id": "guard_hit_detect", "what": "Moment an enemy hit lands on the player's guard", "how": "Player animation switches to a guard-damage animation (W_GuardDamage*)", "source": "TGA CT event names; anim ids to log", "verified": null},
+    {"id": "player_stamina", "what": "Read/restore the player's stamina", "how": "Player ChrIns data module stamina", "source": "fromsoftware-rs", "verified": null},
+    {"id": "enemy_stagger", "what": "Stagger the enemy after a perfect block", "how": "Break its poise via the toughness module", "source": "fromsoftware-rs toughness module; to verify", "verified": null},
+    {"id": "overlay", "what": "Draw the HUD", "how": "hudhook D3D12 ImGui render loop", "source": "hudhook crate (MIT)", "verified": null},
+    {"id": "audio_out", "what": "Play decoded KCD2 samples", "how": "Own audio output (WASAPI via a small mixer)", "source": "to choose", "verified": null}
+  ]
+}

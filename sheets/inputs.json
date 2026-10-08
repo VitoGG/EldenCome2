@@ -1,0 +1,30 @@
+{
+  "sheet": "inputs",
+  "about": "Controls while locked on with a covered sword in the right hand. Read through Elden Ring's own action layer (FD4PadManager in-game pad, UserInputKey), so the player's key remaps apply. 'Suppress' = the game does not see the input this frame (virtual device state blanked).",
+  "columns": {
+    "id": "Row id",
+    "er_user_input": "UserInputKey(s) read",
+    "kind": "digital_press | digital_hold | digital_tap | analog",
+    "when": "Condition for the row to apply",
+    "action": "What the mod does",
+    "suppress_for_game": "true = Elden Ring does not get this input while the row applies",
+    "default_pc": "Elden Ring default on keyboard/mouse",
+    "default_pad": "Elden Ring default on a controller"
+  },
+  "rows": [
+    {"id": "cursor_mouse", "er_user_input": ["MouseMovementX", "MouseMovementY"], "kind": "analog", "when": "locked_on && covered_weapon",
+     "action": "Move the star cursor; the zone is the KCD2 sector the cursor points into", "suppress_for_game": true, "default_pc": "Mouse", "default_pad": "-"},
+    {"id": "cursor_stick", "er_user_input": ["MoveCameraUp", "MoveCameraDown", "MoveCameraLeft", "MoveCameraRight"], "kind": "analog", "when": "locked_on && covered_weapon",
+     "action": "Point the star cursor; it stays on the last zone when the stick is released", "suppress_for_game": true, "default_pc": "-", "default_pad": "Right stick"},
+    {"id": "attack_slash", "er_user_input": ["Attack"], "kind": "digital_press", "when": "locked_on && covered_weapon",
+     "action": "Slash from the cursor's zone (attacks.slash)", "suppress_for_game": true, "default_pc": "Left mouse", "default_pad": "R1 / RB"},
+    {"id": "attack_stab", "er_user_input": ["StrongAttack"], "kind": "digital_press", "when": "locked_on && covered_weapon",
+     "action": "Stab (attacks.stab)", "suppress_for_game": true, "default_pc": "Shift + left mouse", "default_pad": "R2 / RT"},
+    {"id": "block", "er_user_input": ["Guard"], "kind": "digital_hold", "when": "locked_on && covered_weapon",
+     "action": "Guard toward the cursor's zone (defense rules)", "suppress_for_game": false, "default_pc": "Right mouse", "default_pad": "L1 / LB"},
+    {"id": "switch_target", "er_user_input": ["ResetCameraTapped"], "kind": "digital_tap", "when": "locked_on",
+     "action": "Switch to the next target (one frame of sideways camera input is passed to the game) instead of releasing lock-on", "suppress_for_game": true, "default_pc": "Q / middle mouse", "default_pad": "R3"},
+    {"id": "release_lock", "er_user_input": ["ResetCamera"], "kind": "digital_hold", "when": "locked_on && held >= 0.4 s",
+     "action": "Release lock-on (one press is passed to the game)", "suppress_for_game": true, "default_pc": "Hold Q / middle mouse", "default_pad": "Hold R3"}
+  ]
+}

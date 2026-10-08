@@ -1,0 +1,121 @@
+{
+  "sheet": "kcd2_sources",
+  "about": "Every file the mod reads from the player's own Kingdom Come: Deliverance II install at runtime. Nothing here is shipped.",
+  "columns": {
+    "id": "Row id, referenced by other sheets",
+    "pak": "Pak (zip) under {kcd2}/Data",
+    "entry": "Path inside the pak",
+    "kind": "xml_rows | xml_params | dds | fmod_bank",
+    "element": "XML element read (xml_rows) or param key column (xml_params); sample table for fmod_bank",
+    "fields": "Attributes / keys / sample names the mod needs; preflight checks each exists in this PC's copy",
+    "used_for": "What the mashup does with it",
+    "required": "true = the mod refuses to start the feature without it and logs why"
+  },
+  "rows": [
+    {
+      "id": "zones",
+      "pak": "Tables.pak",
+      "entry": "Libs/Tables/combat/combat_zone.xml",
+      "kind": "xml_rows",
+      "element": "combat_zone",
+      "fields": [
+        "combat_zone_id",
+        "combat_zone_name",
+        "angle_from",
+        "angle_to",
+        "cursor_idx",
+        "symetric_combat_zone_id"
+      ],
+      "used_for": "The star: which zones exist and the angle sector of each",
+      "required": true
+    },
+    {
+      "id": "attack_types",
+      "pak": "Tables.pak",
+      "entry": "Libs/Tables/combat/combat_attack_type.xml",
+      "kind": "xml_rows",
+      "element": "combat_attack_type",
+      "fields": [
+        "combat_attack_type_name",
+        "relative_stamina_cost"
+      ],
+      "used_for": "Stab vs slash stamina ratio",
+      "required": true
+    },
+    {
+      "id": "rpg_params",
+      "pak": "Tables.pak",
+      "entry": "Libs/Tables/rpg/rpg_param.xml",
+      "kind": "xml_params",
+      "element": "rpg_param_key",
+      "fields": [
+        "BaseAttackStaminaCost"
+      ],
+      "used_for": "Base stamina an attack costs",
+      "required": true
+    },
+    {
+      "id": "perfect_block_timing",
+      "pak": "Tables.pak",
+      "entry": "Libs/Tables/combat/combat_action_perfect_block.xml",
+      "kind": "xml_rows",
+      "element": "combat_action_perfect_block",
+      "fields": [
+        "block_time_to_start",
+        "block_time_to_hit",
+        "block_time_to_end"
+      ],
+      "used_for": "Perfect block window (hit - start) and riposte window (end - hit), medians over all rows",
+      "required": true
+    },
+    {
+      "id": "icon_cursor",
+      "pak": "IPL_GameData.pak",
+      "entry": "Libs/UI/Textures/Icons/Tutorials/combat_cursor_icon.dds",
+      "kind": "dds",
+      "element": "-",
+      "fields": [],
+      "used_for": "Star cursor and zone markers",
+      "required": true
+    },
+    {
+      "id": "icon_perfect_block",
+      "pak": "IPL_GameData.pak",
+      "entry": "Libs/UI/Textures/Icons/Tutorials/combat_pb_cursor_icon.dds",
+      "kind": "dds",
+      "element": "-",
+      "fields": [],
+      "used_for": "Perfect block flash on the star",
+      "required": true
+    },
+    {
+      "id": "icon_riposte",
+      "pak": "IPL_GameData.pak",
+      "entry": "Libs/UI/Textures/Icons/Tutorials/combat_riposta_icon.dds",
+      "kind": "dds",
+      "element": "-",
+      "fields": [],
+      "used_for": "Riposte-ready marker",
+      "required": true
+    },
+    {
+      "id": "sound_bank",
+      "pak": "Sounds.pak",
+      "entry": "Sounds/fmod/Build/pc/kcd.assets.bank",
+      "kind": "fmod_bank",
+      "element": "FSB5",
+      "fields": [
+        "sword_sword_clash44",
+        "sword_sword_clash50",
+        "sword_sword_clash55",
+        "sword_sword_clash60",
+        "sword_hit_sword_01",
+        "sword_hit_sword_03",
+        "sword_sword_clinch3_01",
+        "sword_sweetener4"
+      ],
+      "used_for": "Clash sounds for block, perfect block and riposte",
+      "required": false
+    }
+  ]
+}

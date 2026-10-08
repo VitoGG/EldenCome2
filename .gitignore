@@ -1,0 +1,8 @@
+target/
+/build/
+/dist/
+*.log
+.env
+kctarnished.env
+__pycache__/
+/local/

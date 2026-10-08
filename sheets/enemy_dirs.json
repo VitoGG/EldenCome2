@@ -1,0 +1,80 @@
+{
+  "sheet": "enemy_dirs",
+  "about": "How an Elden Ring enemy's swing becomes a KCD2 zone. The same tracker measures the player's own swings for swing_map.",
+  "columns": {
+    "id": "Parameter",
+    "value": "Value",
+    "why": "Reason / source",
+    "verified": "Confirmed in the running game"
+  },
+  "rows": [
+    {
+      "id": "attack_anim_range",
+      "value": [
+        3000,
+        3999
+      ],
+      "why": "Elden Ring NPC attack animations are a000_003000-003999 (anim id % 1000000); the enemy is attacking from the first frame of such an animation",
+      "verified": false
+    },
+    {
+      "id": "tracked_bones",
+      "value": [
+        "R_Weapon",
+        "R_Hand",
+        "L_Weapon",
+        "L_Hand"
+      ],
+      "why": "First bone name found on the character's Havok skeleton wins (player skeleton: 150 bones, R_Weapon #119, seen in game)",
+      "verified": false
+    },
+    {
+      "id": "direction_rule",
+      "value": "peak_velocity_learned",
+      "why": "Zone = the KCD2 sector containing the screen-plane direction the blade comes FROM (opposite of its motion) at its fastest. Swing lab on the player's straight sword: R1-1 measured upper_right, R1-2 upper_left, matching how they look. The 'cocked position' rule failed (a resting blade hangs low-right, so it always said 'lower')",
+      "verified": false
+    },
+    {
+      "id": "onset_speed_mps",
+      "value": 10.0,
+      "why": "First sighting of an attack: its zone shows once the blade's screen-plane speed passes this (the strike itself; the lab saw wind-ups at 2-8 m/s and strikes at 13-35 m/s, and slower thresholds fired on the wind-up's direction)",
+      "verified": false
+    },
+    {
+      "id": "record_s",
+      "value": 1.2,
+      "why": "Seconds of each enemy attack tracked; at the end its peak-velocity zone is stored in the learned table",
+      "verified": false
+    },
+    {
+      "id": "learned_table",
+      "value": "{localappdata}/KCTarnished/learned_zones.json",
+      "why": "Zones learned per (enemy NpcParam id, animation id). Once an attack is in the table its zone shows from the first frame of the wind-up, like KCD2's incoming-attack marker",
+      "verified": false
+    },
+    {
+      "id": "thrust_ratio",
+      "value": 1.3,
+      "why": "Thrust when, over the 0.15 s around the fastest moment, the blade's travel along the camera's view axis exceeds its screen-plane travel by this factor (a slash curves around the body, so the instant velocity alone misjudges it)",
+      "verified": false
+    },
+    {
+      "id": "min_extent_m",
+      "value": 0.25,
+      "why": "A swing whose screen-plane path is shorter than this is a thrust (player) or unknown (enemy: any guard side blocks)",
+      "verified": false
+    },
+    {
+      "id": "sample_rate_hz",
+      "value": 60,
+      "why": "One sample per game frame; velocity is taken over two frames because the pose buffer is double-buffered (alternate frames repeat)",
+      "verified": false
+    },
+    {
+      "id": "fallback_no_bone",
+      "value": "any_side",
+      "why": "Enemies without a tracked bone (beasts, some bosses): every guard side blocks, and the marker shows all four zones",
+      "verified": false
+    }
+  ]
+}

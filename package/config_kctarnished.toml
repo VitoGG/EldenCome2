@@ -1,0 +1,14 @@
+# Kingdom Come: Tarnished — ModEngine2 profile.
+# Melty starts: {managed}/modengine2/modengine2_launcher.exe -t er -c {managed}/kctarnished/config_kctarnished.toml
+# Relative paths below resolve against the ModEngine2 launcher's folder ({managed}/modengine2).
+[modengine]
+debug = false
+external_dlls = ["..\\kctarnished\\kctarnished.dll"]
+
+[extension.mod_loader]
+enabled = true
+loose_params = false
+mods = []
+
+[extension.scylla_hide]
+enabled = false

@@ -1,0 +1,28 @@
+{
+  "sheet": "zones",
+  "about": "KCD2 combat zones as they appear on the star. Angles are read live from kcd2_sources.zones; the expected columns are checked by preflight against this PC's copy. Angle 0 = right, 90 = up (screen).",
+  "columns": {
+    "kcd2_zone_id": "combat_zone_id in KCD2",
+    "kcd2_name": "combat_zone_name in KCD2",
+    "expected_angle_from": "angle_from in KCD2 (degrees)",
+    "expected_angle_to": "angle_to in KCD2 (degrees)",
+    "active": "Has a non-empty sector, so it is on the star",
+    "label": "Short label for logs",
+    "meaning_attack": "What attacking from this zone means for the player",
+    "meaning_incoming": "What an incoming attack in this zone means (screen side the blade comes from)"
+  },
+  "rows": [
+    {"kcd2_zone_id": 0, "kcd2_name": "head", "expected_angle_from": 45, "expected_angle_to": 135, "active": true, "label": "TOP",
+     "meaning_attack": "Overhead cut, from above", "meaning_incoming": "Blade comes down from above"},
+    {"kcd2_zone_id": 1, "kcd2_name": "upper_left", "expected_angle_from": 135, "expected_angle_to": 225, "active": true, "label": "LEFT",
+     "meaning_attack": "Cut from the player's left", "meaning_incoming": "Blade comes in from the left of the screen"},
+    {"kcd2_zone_id": 2, "kcd2_name": "upper_right", "expected_angle_from": 315, "expected_angle_to": 45, "active": true, "label": "RIGHT",
+     "meaning_attack": "Cut from the player's right", "meaning_incoming": "Blade comes in from the right of the screen"},
+    {"kcd2_zone_id": 5, "kcd2_name": "lower", "expected_angle_from": 225, "expected_angle_to": 315, "active": true, "label": "LOW",
+     "meaning_attack": "Rising cut, from below", "meaning_incoming": "Blade comes up from below"},
+    {"kcd2_zone_id": 3, "kcd2_name": "lower_left", "expected_angle_from": 0, "expected_angle_to": 0, "active": false, "label": "-",
+     "meaning_attack": "Unused in KCD2 1.5 (empty sector)", "meaning_incoming": "Unused"},
+    {"kcd2_zone_id": 4, "kcd2_name": "lower_right", "expected_angle_from": 0, "expected_angle_to": 0, "active": false, "label": "-",
+     "meaning_attack": "Unused in KCD2 1.5 (empty sector)", "meaning_incoming": "Unused"}
+  ]
+}

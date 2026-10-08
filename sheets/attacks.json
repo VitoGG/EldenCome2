@@ -1,0 +1,17 @@
+{
+  "sheet": "attacks",
+  "about": "The player's attacks while locked on. Each one fires an Elden Ring behavior event picked from swing_map.",
+  "columns": {
+    "id": "Row id",
+    "kcd2_attack_type": "combat_attack_type_name in KCD2 (stamina ratio read live)",
+    "input": "inputs.id that triggers it",
+    "uses_zone": "true = the star cursor picks the swing; false = one swing regardless of zone",
+    "extra_stamina": "Stamina drained on top of Elden Ring's own cost: (relative_stamina_cost - 1) * BaseAttackStaminaCost * stamina_scale",
+    "stamina_scale": "KCD2 stamina points -> Elden Ring stamina points",
+    "buffer_s": "Seconds an input is remembered while the previous swing is still playing"
+  },
+  "rows": [
+    {"id": "slash", "kcd2_attack_type": "slash", "input": "attack_slash", "uses_zone": true, "extra_stamina": "formula", "stamina_scale": 0.5, "buffer_s": 0.35},
+    {"id": "stab", "kcd2_attack_type": "stab", "input": "attack_stab", "uses_zone": false, "extra_stamina": "formula", "stamina_scale": 0.5, "buffer_s": 0.35}
+  ]
+}
